@@ -9,6 +9,11 @@ from models import StudentCreate, StudentUpdate, StudentResponse, Address
 
 app = FastAPI()
 
+if __name__ == "__main__":
+    # Get the PORT from environment variables, default to 8000 if not found
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
+
 # Create database connection
 db = DatabaseConnection()
 
